@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#top-hidden{
+     overflow: hidden;
+     height: 0;
+     width: 100%;
+     position: absolute;
+     top: 0;
+     background-color: rgb(126, 126, 167);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all ease-in 1s;
+    >span{
+        padding: 20px;
+    }
+}
+#top:hover~#top-hidden{
+    height: 200px;
+    width: 100%;
+}
+
+#right-hidden{
+    overflow: hidden;
+    height: 100%;
+    width:0;
+    position: absolute;
+    right: 0;
+    background-color: rgb(126, 126, 167);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 1s;
+    flex-direction: column;
+   >span{
+       padding: 20px;
+   }
+}
+#right:hover~#right-hidden{
+    height: 100%;
+    width: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+}
+#bottom-hidden{
+    overflow: hidden;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(126, 126, 167);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 1s;
+   >span{
+       padding: 20px;
+   }
+}
+#left-hidden{
+    overflow: hidden;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    left: 0;
+    background-color: rgb(126, 126, 167);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 1s;
+    flex-direction: column;
+   >span{
+       padding: 20px;
+   }
+}
+#bottom:hover~#bottom-hidden{
+    height: 200px;
+}
+#left:hover~#left-hidden{
+    width: 40vh;
+}
+#main span:hover{
+    background-color: rgb(57, 94, 100);
+}
+#main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:all ease 2s;
+    >span{
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: skyblue;
+    }
+}
+

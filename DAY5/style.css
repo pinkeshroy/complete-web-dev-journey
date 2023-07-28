@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+div{
+    margin: 20px;
+    text-align: center;
+    width: 40%;
+    height: 63px;
+    overflow: hidden;
+    box-shadow: 5px 5px 6px gray;
+    transition: all 0.8s ease-in;
+    border: 1px solid black;
+}
+div h1{
+    padding:15px 0px;
+    font-size: 30px;
+}
+div:hover{
+    height: 150px;
+    width: 40%;
+    border-radius: 20px;
+    
+}
