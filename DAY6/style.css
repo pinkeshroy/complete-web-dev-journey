@@ -98,10 +98,9 @@ html {
         }
 
         >h1 {
-            /* padding:50px 50px ; */
             font-size: 60px;
             width: 450px;
-            height: 300px;
+            height: 250px;
         }
 
         >p {
@@ -223,7 +222,7 @@ html {
     height: 100%;
 
     >h3 {
-        padding-top: 120px;
+        padding-top: 100px;
         padding-left: 70px;
         rotate: -12deg;
         width: 50px;
@@ -334,8 +333,8 @@ html {
 
 #page3 {
     width: 100%;
-    height: 100%;
-    padding: 100px 100px 0;
+    height: 120%;
+    padding: 60px 100px 0 40px;
     display: flex;
 
     >h4 {
@@ -349,15 +348,31 @@ html {
 #page3-left {
     width: 50%;
     height: 96%;
-    margin: 30px -50px;
+    margin: 30px 0px;
 
     >h1 {
-        font-size: 70px;
-        font-weight: 700;
-        margin-bottom: 20px;
+        font-size: 65px;
+        font-weight: 600;
+        width: 50%;
     }
 }
 
+#skills_heading {
+    width: 100%;
+    margin-top: 40px;
+
+    >h2 {
+        font-size: 30px;
+    }
+
+    >div {
+        margin-top: 20px;
+        width: 250px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+    }
+}
 #txt {
     display: flex;
     padding-top: 20px;
@@ -370,50 +385,163 @@ html {
     }
 
     >p {
-        width: 60%;
+        width: 50%;
+        font-size: 13px;
+        word-spacing: 4px;
     }
 }
-
-#skills {
+.skills{
     width: 100%;
-    height: 50%;
-    margin-top: 30px;
-
-    >h2 {
-        font-size: 40px;
-    }
-
-    >div {
-        margin-top: 20px;
-        width: 250px;
-        height: 120px;
-        display: flex;
-        flex-direction: column;
-        /* background-color: skyblue; */
-    }
-}
-
-#l1 {
-    /* width: 100%; */
-    height: 100%;
-    display: flex;
-}
-
-#icon {
-    margin: 20px 50px;
-    width: 100%;
-    height: 60%;
+    height: 55%;
     display: flex;
     flex-direction: column;
-    background-image: url(https://static-00.iconduck.com/assets.00/color-swatch-icon-256x256-x4t29p6k.png);
-    background-size: 50px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    background-color: black;
-
-    >h1 {
-        padding-top: 70px;
-        font-size: 20px;
+}
+.skillsTop{
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+.skillsBox{
+    height: 180px;
+    width: 180px;
+    margin: auto;
+    text-align: center;
+    >div{
+        margin:10px auto;
+        height: 60%;
+        width: 60%;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #fff;
+        
     }
+}
+.skills1{
+    >div{
+        background-image: url(https://static-00.iconduck.com/assets.00/color-swatch-icon-256x256-x4t29p6k.png);
+        background-size: 50%;
+        background-color: black;
+    }
+    
+}
+.skills2{
+    >div{
+        background-image: url(https://static.thenounproject.com/png/668118-200.png);
+        
+    }
+
+}
+.skills3{
+    >h3{
+        text-align: left;
+    }
+    >div{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKQFAnOGWSr-3jEr6KFSO2qjSPrlESG3I6jh73ZBWCcemMTqZY8l_WkWsC0uJZ8OdtyW0&usqp=CAU);
+    }
+}
+
+.skillsBottom {
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+.skillsB1{
+    >div{
+        background-image: url(https://cdn1.iconfinder.com/data/icons/growth-hacking-12/64/product-development-design-prototype-create-512.png);
+        color: #fff;
+        background-size: 79%;
+    }
+}
+.skillsB2{
+    >div{
+        background-image: url(https://www.pngitem.com/pimgs/m/109-1094031_arrow-north-clip-art-4-direction-arrow-png.png);
+    }
+}
+.skillsB3{
+    >div{
+        background-image: url(https://www.pngitem.com/pimgs/m/391-3918613_personal-service-platform-person-icon-circle-png-transparent.png);
+    }
+}
+#page3-right{
+    height: 100%;
+    width: 50%;
+    padding: 35px 0px 0 0;
+    /* background-color: crimson; */
+    >h1{
+        font-size: 30px;
+        font-weight: 630;
+        margin-bottom: 50px;
+    }
+}
+.experienceData{
+    width: 90%;
+    height: 100px;
+    padding: 20px 0;
+    border: none;
+    border-top: 2px solid;
+    display: flex ;
+}
+#expYear{
+    width: 130px;
+    height: 100%;
+    >h5{
+        font-weight: 600;
+    }
+}
+#positionCompanyName{
+    width: 100%;
+    height: 100%;
+    >h2{
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+    >h6{
+        font-weight: 550;
+    }
+}
+.userImage{
+    height: 42%;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    >div{
+        width: 50%;
+        height: 100%;
+        /* background-color: #fff; */
+        background-image: url(https://www.careerguide.com/career/wp-content/uploads/2023/01/591-5911320_professional-man-in-suit-png-transparent-png-removebg-preview.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        >div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin:px;
+            color: #fff;
+            background-color: black;
+            height: 150px;
+            width: 150px;
+            border-radius:50%;
+            >div{
+                width: 90%;
+                height: 90%;
+                border: 1px solid #FCDA69;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+.ri-arrow-right-up-line{
+    color: #FCDA69;
+    font-size: 30px;
+    font-weight: 500;
 }
