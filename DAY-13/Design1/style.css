@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+        background-color: rgb(56, 70, 70);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 70px;
+        >#icon{
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+              background-color: #fff;
+        }
+        >#menuLinks{
+         display: flex;
+         gap: 20px;
+         >a{
+            text-decoration: none;
+            padding:10px 20px;
+            background-color: #fff;
+         }
+        }
+        >button{
+         border: none;
+         padding: 20px 70px;
+         border-radius: 15px;
+        }
+}
+.container{
+   display: flex;
+   >.info-container{
+      width: 100vh;
+      background-color: rgba(171, 78, 171, 0.648);
+   }
+   >.content-container{
+      padding: 20px;
+      >h2{
+         margin: 20px;
+      }
+      >.cards{
+         display: flex;
+         flex-wrap: wrap;
+         >div{
+         margin: 20px 20px;
+         width: 200px;
+         height: 200px;
+         background-color: rgba(128, 128, 128, 0.765);
+      }
+      }
+      >.contents{
+         padding: 100px;
+         background: grey;
+      }
+   }
+
+}
