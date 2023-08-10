@@ -119,6 +119,10 @@ footer{
         }
     }
     .container3{
-        
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        >.card{
+            grid-column: 1;
+        }
     }
 }
