@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+.page1{
+    width: 100%;
+    padding: 50px;
+}
+.content{
+    width: 100%;
+    display: flex;
+    justify-content:space-between ;
+    >.content-left{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        >#head{
+            height: 50%;
+        }
+        >.profile{
+            height: 50%;
+            display: flex;             
+            >#name{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+    >.content-right{
+        flex: 1;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+    }
+}
+footer{
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    >div{
+        width: 20%;
+    }
+}
