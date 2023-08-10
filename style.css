@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+table{
+    border: 1px solid black;
+}
+thead{
+    /* border: 1px solid black; */
+    background-color: blue;
+    font-size: 20px;
+    >tr {
+        border: 1px solid black;
+        >th{
+        /* border: 1px solid black; */
+        padding: 10px;
+        }
+    }
+}
+tbody{
+    >tr{ 
+        /* border: 1px solid black; */
+      >td{
+        border: 1px solid black;
+        padding: 10px;
+    }
+}
+}
