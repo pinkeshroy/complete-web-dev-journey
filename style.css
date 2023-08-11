@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100wh;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.circle{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(2, 55, 124);
+    border-radius: 50%;
+    animation: borderEffect 1s infinite;
+}
+
+@keyframes borderEffect{
+    0%,100%{
+        border: none;
+        opacity: 1;
+        scale: 1;
+      }
+    50%{
+          border: 10px solid rgb(0, 42, 96);
+            opacity: .8;
+            scale: 1.2;
+    }
+}
