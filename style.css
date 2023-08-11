@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+     width: 450px;
+     height: 250px;
+     margin: 50px;
+     border-radius: 20px;
+     position: absolute;
+}
+.box1{
+    background-color: red;
+}
+.box2{
+    top: 50px;
+    left: 70px;
+    background-color: rgba(34, 47, 165, 0.82);
+}
+.box3 {
+    top: 100px;
+    left: 140px;
+    background-color: rgba(34, 165, 65, 0.616);
+    z-index: 9999;
+}
+.box4 {
+    top: 150px;
+    left: 210px;
+    background-color: rgba(154, 0, 131, 0.82);
+}
