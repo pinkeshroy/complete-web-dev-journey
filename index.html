@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form Submit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form onsubmit="handleFormSubmit(event)">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" required>
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" required>
+        <label for="age">Age</label>
+        <input onkeyup="validateInput('age')" type="number" name="age" id="age" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="phone">Phone Number</label>
+        <input onkeyup="validateInput('phone')" type="number" name="phone" id="phone" required>
+        <label>Gender</label>
+        <div class="gender-container">
+            <label for="male">male</label>
+            <input type="radio" name="gender" id="male" required>
+            <label for="female">female</label>
+            <input type="radio" name="gender" id="female" required>
+        </div>
+        <p class="error"></p>
+         <button type="submit">Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
