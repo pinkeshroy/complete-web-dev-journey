@@ -81,30 +81,63 @@
 
 // }
 
-function mergeSortedArray(leftarray, rightarray) {
-    let resultarray = [];
-
+function mergeSort(leftarray, rightarray) {
+    const resultarray = []
     while (leftarray.length && rightarray.length) {
-        if (leftarray[0] <= rightarray[0]) 
-            resultarray.push(leftarray.shift());
+        if (leftarray[0] <= rightarray[0])
+            resultarray.push(leftarray.shift())
         else 
-            resultarray.push(rightarray.shift());
+            resultarray.push(rightarray.shift())
     }
-    if (leftarray.length) resultarray = resultarray.concat(leftarray);
+    if (leftarray.length)resultarray.concat(leftarray)
+    if (rightarray.length) resultarray.concat(resultarray)
+    console.log(resultarray)
+    return resultarray
+}
+
+mergeSort([1,4],[2,3,5])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function mergeSortedArray(leftarray, rightarray) {
+//     let resultarray = [];
+
+//     while (leftarray.length && rightarray.length) {
+//         if (leftarray[0] <= rightarray[0]) 
+//             resultarray.push(leftarray.shift());
+//         else 
+//             resultarray.push(rightarray.shift());
+//     }
+//     if (leftarray.length) resultarray = resultarray.concat(leftarray);
     
-    if (rightarray.length) resultarray = resultarray.concat(rightarray);
+//     if (rightarray.length) resultarray = resultarray.concat(rightarray);
 
-    return resultarray;
-}
-function mergeSort(unsortedArray) {
-    const array = [...unsortedArray];
+//     return resultarray;
+// }
+// function mergeSort(unsortedArray) {
+//     const array = [...unsortedArray];
 
-    if (array.length <= 1) return array;
-    const mid = Math.floor(array.length / 2);
+//     if (array.length <= 1) return array;
+//     const mid = Math.floor(array.length / 2);
 
-    const leftSortedArray = mergeSort(array.slice(0, mid)); 
-    const rightSortedArray = mergeSort(array.slice(mid, array.length)); 
+//     const leftSortedArray = mergeSort(array.slice(0, mid)); 
+//     const rightSortedArray = mergeSort(array.slice(mid, array.length)); 
 
-    return mergeSortedArray(leftSortedArray, rightSortedArray);
-}
-console.log(mergeSort([47, 61, 88, 28, 92, 16, 34, 61, 59, 71]))
+//     return mergeSortedArray(leftSortedArray, rightSortedArray);
+// }
+// console.log(mergeSort([47, 61, 88, 28, 92, 16, 34, 61, 59, 71]))
+
+
