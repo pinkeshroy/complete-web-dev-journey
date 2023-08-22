@@ -3,6 +3,13 @@
 const card = document.getElementById('card')
 card.style.display = 'none'
 const btnToShow = document.getElementById('btn')
-btnToShow.addEventListener('submit', (event) => {
-    card.style.display = 'initial'
+// console.log(btnToShow);
+btnToShow.addEventListener('click', () => {
+    // console.log("event")
+    card.style.display = 'block'
+})
+const closeDisplay = document.getElementById('close')
+
+closeDisplay.addEventListener('click', () => {
+    card.style.display = 'none'
 })
