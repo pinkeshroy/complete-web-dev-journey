@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form onsubmit="handleForm(event)">
+    <form onsubmit="handleSubmitForm(event)">
         <label for="name">Name</label>
         <input type="text" name="name" id="name">
         <label for="age">Age</label>
@@ -22,8 +22,8 @@
             <label for="female">Female</label>
             <input type="radio" name="gender" id="female">
         </div>
-        <p class="error"></p>
-        <button id="btn" type="submit">Submit</button>
+        <p id="error"></p>
+        <button id="submitButton" type="submit">Submit</button>
     </form>
 
     <script src="script1.js"></script>
