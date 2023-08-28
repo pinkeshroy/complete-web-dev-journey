@@ -58,7 +58,7 @@ function createTableUi(tablestate) {
     tablestate.header.forEach((element) => {
         const th = createTableElement(element.elementType);
         const inputElement = createInputElement('headCell', "", `head-0-${element.columnNumber}`)
-        console.log(inputElement)
+        inputElement.value=element.columnName
         th.append(inputElement);
         addInTableHead.append(th)
     })
@@ -66,8 +66,6 @@ function createTableUi(tablestate) {
     tablestate.body.forEach((element) => {
         const tr = document.createElement(element.elementType);
         element.columnDetails.forEach((element) => {
-
-            console.log({ element });
             const tdElement = document.createElement(element.elementType);
             const textAreaElement = createInputElement('bodyCell', "", `body-${element.rowNumber}-${element.columnNumber}`)
             textAreaElement.value = element.cellValue
@@ -84,7 +82,7 @@ const addNewColumnDetails = (columnNumber) => {
         const tdObject = {
             elementType: "td",
             columnNumber: columnNumber,
-            rowNumber: idx + 1,
+            rowNumber: idx,
             cellValue: `Cell ${Math.floor(Math.random() * 10)}`
         }
         element.columnDetails.push(tdObject)
@@ -134,20 +132,14 @@ clearLocalData.addEventListener('click', (event) => {
 })
 
 addInTableBody.addEventListener("keyup", (event) => {
-    console.log(event.target.value)
     const [isBody, rowNumber, columnNumber] = event.target.id.split("-") // body-2-3
-    console.log({ rowNumber, columnNumber, tableState, target: event.target });
-
     tableState.body[rowNumber].columnDetails[columnNumber].cellValue = event.target.value
-
     localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
 })
-addInTableBody.addEventListener("blur", (event) => {
 
-    console.log({ tableState });
-    updateTableData(tableState)
-})
 
 addInTableHead.addEventListener("keyup", (event) => {
-    console.log(event.target)
+    const [ishead, rowNumber, columnNumber] = event.target.id.split("-") // head-0-3
+    tableState.header[columnNumber].columnName=event.target.value
+    localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
 })
