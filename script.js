@@ -1,141 +1,153 @@
+const LOCAL_STORAGE_TABLE_KEY = 'tableStateData'
+
+let tableState = {
+    header: [],
+    body: []
+}
+
+if (localStorage.getItem(LOCAL_STORAGE_TABLE_KEY)) {
+    tableState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TABLE_KEY));
+} else {
+    localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+}
 const containerBody = document.getElementById('container');
-const addInthead = document.getElementById('thead')
-const addIntbody = document.getElementById('tbody')
+const addInTableHead = document.getElementById('thead')
+const addInTableBody = document.getElementById('tbody')
 const addRowbutton = document.getElementById('addRowbutton')
 const addColumnbutton = document.getElementById('addColumnbutton')
-const targetTable=document.getElementById('table')
+const clearLocalData = document.getElementById('clearLocalData');
 
-const table = {
-    header: [{ elementType: 'th', columnName: "A", order: 1, sort: 'undefined' },
-        { elementType: 'th', columnName: "B", order: 2, sort: 'undefined' },
-        { elementType: 'th', columnName: "B", order: 2, sort: 'undefined' },
-       ],
-    body: [{elementType: "tr", rowOrder: 1,
-        columnElement: [{ elementType: "td", columnName: "inputValue", rowOrder: "1", value: "0" },
-            { elementType: "td", columnName: "inputValue", rowOrder: "1", value: "90" },
-            { elementType: "td", columnName: "inputValue", rowOrder: "1", value: "45" }]
-    }]
+const getInput = document.getElementsByTagName('textarea')
+
+console.log({ getInput });
+
+const updateTableData = (tableState) => {
+    localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+    createTableUi(tableState)
 }
 
-function clearTable() {
-    addInthead.innerHTML = "";
-    addIntbody.innerHTML = "";
+function clearTableUi() {
+    addInTableHead.innerHTML = "";
+    addInTableBody.innerHTML = "";
 }
 
-const headerData= {
-    elementType: "",
-    columnName: "",
-    order: 1,
-    sort: undefined,
-};
+function createInputElement(celltype, value, id) {
+    const elementType = celltype === 'headCell' ? 'input' : 'textarea'
+    const inputElement = document.createElement(elementType);
+    inputElement.value = value;
+    inputElement.setAttribute('id', id)
 
-const bodyData = {
-    elementType: "",
-    rowOrder: 1,
-    columnElement:[]
-}
-
-const columnElement= {
-    elementType: "",
-    columnName: "",
-    rowOrder: "",
-    value:""
-}
-
-
-targetTable.style.border = "1px solid black";
-targetTable.style.padding = "px";
-addIntbody.style.padding = "10px";
-addInthead.style.padding="20px"
-let count = 1;
-
-function createInputElement() {
-    const inputElement = document.createElement('input');
+    if (celltype === 'headCell') {
+        inputElement.setAttribute('placeholder', 'Column Name');
+    } else if (celltype === 'bodyCell') {
+        inputElement.setAttribute('placeholder', 'Row Data');
+    }
     inputElement.setAttribute('type', 'text');
-    inputElement.style.padding = "10px"
-    inputElement.style.fontSize = "15px";
+    // inputElement.addEventListener('keyup', () => {
+    //     handleInputChange(id)
+    // });
     return inputElement;
 }
 const createTableElement = (elementType) => {
     const element = document.createElement(elementType);
-    element.style.padding = "10px"
-    element.style.border = "1px solid black";
     return element
 }
-function createTableUi() {
-    clearTable();
-    table.header.forEach((element) => {
+function createTableUi(tablestate) {
+    clearTableUi();
+    // createHeader
+    tablestate.header.forEach((element) => {
         const th = createTableElement(element.elementType);
-        th.append(element.columnName);
-        addInthead.append(th)
-        // console.log(element)
+        const inputElement = createInputElement('headCell', "", `head-0-${element.columnNumber}`)
+        console.log(inputElement)
+        th.append(inputElement);
+        addInTableHead.append(th)
     })
-    table.body.forEach((element) => {
-        const tr = createTableElement(element.elementType);
-        element.columnElement.forEach((columnElement) => {
-            const td = createTableElement(columnElement.elementType);
-            td.append(columnElement.columnName);
-            tr.append(td)
-        })
-        addIntbody.append(tr);
-        // console.log(tr)
-    })
-}
-createTableUi()
+    //  createBody
+    tablestate.body.forEach((element) => {
+        const tr = document.createElement(element.elementType);
+        element.columnDetails.forEach((element) => {
 
-const createThead = () => {
-    const th = createTableElement('th');
-    th.append(createInputElement())
-    addInthead.append(th);
-    const childrenbody = addInthead.children
-    if (childrenbody.length) { 
-        createTbody()
-    }
+            console.log({ element });
+            const tdElement = document.createElement(element.elementType);
+            const textAreaElement = createInputElement('bodyCell', "", `body-${element.rowNumber}-${element.columnNumber}`)
+            textAreaElement.value = element.cellValue
+            tdElement.append(textAreaElement)
+            tr.append(tdElement)
+        })
+        addInTableBody.append(tr);
+    })
 }
-const createTbody = () => {
-    const childrenbody = addIntbody.children
-    if (!childrenbody.length) {
-        const tr = document.createElement('tr');
-        tr.setAttribute('id','bodyTr')
-        const td = document.createElement('td');
-        td.append(createInputElement());
-        tr.append(td)
-        addIntbody.append(tr)
-    }
-    else {
-        for (let i = 0; i < childrenbody.length;i++){
-            const td =createTableElement('td');
-            td.append(createInputElement());
-            td.style.padding = "10px"
-            td.style.border = "1px solid black";
-            childrenbody[i].append(td)
-        };
-    }
+createTableUi(tableState);
+
+const addNewColumnDetails = (columnNumber) => {
+    tableState.body.forEach((element, idx) => {
+        const tdObject = {
+            elementType: "td",
+            columnNumber: columnNumber,
+            rowNumber: idx + 1,
+            cellValue: `Cell ${Math.floor(Math.random() * 10)}`
+        }
+        element.columnDetails.push(tdObject)
+    })
 }
-function appendNewRowInBody() {
-    const childrenbody = addIntbody.children
-    if (!childrenbody.length) {
-        alert("Table Empty!");
-        return;
+const addNewColumn = () => {
+    const headerObj = {
+        elementType: "th",
+        columnName: "A",
+        columnNumber: tableState.header.length,
+        sort: "",
+    };
+    addNewColumnDetails(headerObj.columnNumber);
+    tableState.header.push(headerObj);
+    updateTableData(tableState)
+}
+
+function addNewRow() {
+    const bodyRow = {
+        elementType: "tr",
+        rowNumber: tableState.body.length,
+        columnDetails: []
     }
-    const bodyTr = document.getElementById("bodyTr")
-    const tr = document.createElement('tr');
-    console.log(bodyTr)
-    for (let i = 0; i < bodyTr.children.length ; i++){
-        const td = document.createElement('td');
-        td.append(createInputElement());
-        td.style.padding = "10px"
-        td.style.border = "1px solid black";
-        tr.append(td)
-    }
-    addIntbody.append(tr)
+    tableState.header.forEach(headerObj => {
+        bodyRow.columnDetails.push({
+            elementType: 'td',
+            columnNumber: headerObj.columnNumber,
+            rowNumber: bodyRow.rowNumber,
+            cellValue: `Cell ${Math.floor(Math.random() * 10)}`
+        })
+    })
+    tableState.body.push(bodyRow)
+    updateTableData(tableState);
 }
 
 addColumnbutton.addEventListener('click', (event) => {
-    createThead();
-
+    addNewColumn();
 })
 
 addRowbutton.addEventListener('click', (event) => {
-    appendNewRowInBody();
+    addNewRow()
+})
+
+clearLocalData.addEventListener('click', (event) => {
+    localStorage.clear()
+    clearTableUi();
+})
+
+addInTableBody.addEventListener("keyup", (event) => {
+    console.log(event.target.value)
+    const [isBody, rowNumber, columnNumber] = event.target.id.split("-") // body-2-3
+    console.log({ rowNumber, columnNumber, tableState, target: event.target });
+
+    tableState.body[rowNumber].columnDetails[columnNumber].cellValue = event.target.value
+
+    localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+})
+addInTableBody.addEventListener("blur", (event) => {
+
+    console.log({ tableState });
+    updateTableData(tableState)
+})
+
+addInTableHead.addEventListener("keyup", (event) => {
+    console.log(event.target)
 })
