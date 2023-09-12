@@ -1,30 +1,34 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonComp } from './buttonComp';
-import { noteAction } from './slice';
+import { formActions, noteAction } from './slice';
 
 export function NotesConatiner() {
-    const { allNotes } = useSelector(state => {
-        return { allNotes: state.allNotesData, }
+    const  allNotes = useSelector(state => {
+        return  state.allNotesData
     })
-    // console.log({ allNotes })
 
     const dispatch = useDispatch()
-    const { setNoteTitle,
-        setNoteDescription, setNoteUpdating, } = noteAction
+    const { setNoteTitle, setNoteDescription, setIndex, setUpdate } = noteAction
+    const {deleteNote}=formActions
     return (
         <div>
             {
-                allNotes.map((elem, indxx) => {
-                    let { title, description,idx } = elem.payload
-                    console.log({idx})
-                    title = title.payload
-                    description = description.payload
+                allNotes.map((elem, idx) => {
+                    let { description, title } = elem
+                    console.log({elem});
                     return (<div><h4>{title}</h4>
                         <p>{description}</p>
                         <ButtonComp buttonType={"Edit"} onClick={() => {
+                            dispatch(setUpdate(true))
                             dispatch(setNoteTitle(title))
                             dispatch(setNoteDescription(description))
-                            dispatch(setNoteUpdating({ status: true,indxx }))
+                            dispatch(setIndex(idx))
+                        }} />
+                        <ButtonComp buttonType={"Delete"} onClick={() => {
+                            // dispatch(setNoteTitle(title))
+                            // dispatch(setNoteDescription(description))
+                            // dispatch(setIndex(idx))
+                            dispatch(deleteNote(idx))
                         }} />
                     </div>)
 

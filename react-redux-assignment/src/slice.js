@@ -2,10 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const noteSlice = createSlice({
     name: "notes",
-    initialState:[],
+    initialState: [],
     reducers: {
         setNotes: (state, action) => {
-            state.push(action)
+            let { title, description } = action.payload
+            title = title.payload
+            description = description.payload
+            state.push({ title: title, description: description })
             return state;
         },
         addNote: (state, action) => {
@@ -13,8 +16,16 @@ export const noteSlice = createSlice({
             return state;
         },
         updateNote: (state, action) => {
-            const { idx, updatedNoteData } = action
-            state.splice(idx, 1, updatedNoteData)
+            let { title, description, id } = action.payload;
+            const arr = state.map((elem, idx) => {
+                if (idx == id) return { title: title, description: description }
+                else return elem
+            })
+            return arr
+        },
+        deleteNote: (state, action) => {
+            const idx=action.payload
+            state.splice(idx, 1)
             return state
         }
     }
@@ -24,8 +35,8 @@ export const noteData = createSlice({
     initialState: {
         title: "",
         description: "",
-        update: false,
-        idx: 0
+        id: 0,
+        update: false
     },
     reducers: {
         setNoteTitle: (state, action) => {
@@ -37,29 +48,13 @@ export const noteData = createSlice({
             return state;
         },
         setIndex: (state, action) => {
-            state.idx = action
+            const { idx } = action.payload
+            state.id = action
             return state
         },
-        setNoteUpdating: (state, action) => {
-            console.log({ action });
-            return {
-                ...state,
-                update: action.payload.status,
-                idx: action.idx
-            }
-        }
-    }
-
-})
-export const editing = createSlice({
-    name: 'editing',
-    initialState: { isEditing: false },
-
-    reducers: {
-        setEditing: (state, action) => {
-            if (action === 'edit')
-                state.isEditing = true;
-            else state.isEditing = false;
+        setUpdate: (state, action) => {
+            state.update = action
+            console.log({ stateINToggle:state.update })
             return state
         }
     }
@@ -69,3 +64,5 @@ export const editing = createSlice({
 
 export const { actions: formActions, reducer: formReducer } = noteSlice
 export const { actions: noteAction, reducer: noteReducer } = noteData
+// export const { actions: editAction, reducer: editReducer } = editToggle
+
