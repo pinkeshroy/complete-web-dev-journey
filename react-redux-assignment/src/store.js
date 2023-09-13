@@ -5,6 +5,5 @@ export default configureStore({
     reducer: {
         allNotesData: formReducer,
         inputNote: noteReducer,
-        // editButton: editReducer,
     }
 })

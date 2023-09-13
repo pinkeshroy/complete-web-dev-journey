@@ -11,10 +11,6 @@ export const noteSlice = createSlice({
             state.push({ title: title, description: description })
             return state;
         },
-        addNote: (state, action) => {
-            state.push(action)
-            return state;
-        },
         updateNote: (state, action) => {
             let { title, description, id } = action.payload;
             const arr = state.map((elem, idx) => {

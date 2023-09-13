@@ -15,7 +15,6 @@ export function NotesConatiner() {
             {
                 allNotes.map((elem, idx) => {
                     let { description, title } = elem
-                    console.log({elem});
                     return (<div><h4>{title}</h4>
                         <p>{description}</p>
                         <ButtonComp buttonType={"Edit"} onClick={() => {
@@ -25,9 +24,6 @@ export function NotesConatiner() {
                             dispatch(setIndex(idx))
                         }} />
                         <ButtonComp buttonType={"Delete"} onClick={() => {
-                            // dispatch(setNoteTitle(title))
-                            // dispatch(setNoteDescription(description))
-                            // dispatch(setIndex(idx))
                             dispatch(deleteNote(idx))
                         }} />
                     </div>)

@@ -4,6 +4,7 @@ import { formActions, noteAction } from './slice';
 import { ButtonComp } from './buttonComp'
 
 export function FormComp() {
+
     const { currentNoteData } = useSelector(state => {
         return { currentNoteData: state.inputNote }
     })   
