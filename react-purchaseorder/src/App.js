@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import { ExpiryDateComponent } from './ExpiryDateComponent';
+import { CreateTableComponent } from './createTableComponent';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <ExpiryDateComponent/>
+      <CreateTableComponent/>
     </div>
   );
 }
 
-export default App;
