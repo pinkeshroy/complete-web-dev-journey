@@ -6,6 +6,7 @@
 function removeDublicates(arr) {
     const set = new Set(arr)
     return [...set]
+
 }
 
 const arr = [1, 1, 1, 2, 2, 3, 4, 5, 6, 6, 5]
