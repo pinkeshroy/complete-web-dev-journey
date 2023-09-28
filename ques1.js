@@ -13,8 +13,9 @@ function findFirstMissingNumber(arr) {
             return arr[i-1]+1
         }
     }
+    return (arr[arr.length-1]+1)
 }
 
-// const arr = [4, 5, 8, 9, 10];
-const arr = [11,12,13,15]
+const arr = [4, 5, 8, 9, 10];
+// const arr = [11,12,13,14,15]
 console.log(findFirstMissingNumber(arr))
