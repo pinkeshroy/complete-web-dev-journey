@@ -17,7 +17,7 @@ function getAverage(arr) {
         }
             
     }
-    return num/(arr.length-wide)
+    return (num/(arr.length-wide)).toFixed(3)
 
 }
 

@@ -26,7 +26,6 @@ function findMaxDublicate(arr) {
     return max[0]
     
 }
-
 const arr = [11, 1, 12, 2, 5, 5, 6, 11, 14, 11];
 
 console.log(findMaxDublicate(arr))
