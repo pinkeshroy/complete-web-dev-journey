@@ -9,16 +9,21 @@ function findMaxDublicate(arr) {
     for (let i = 0; i < arr.length; i++){
         if (map.get(arr[i])) {
             map.set(arr[i], map.get(arr[i]) + 1)
+            if (max[1] < map.get(arr[i])) {
+                max[0] = arr[i];
+                max[1] = map.get(arr[i]);
+            }
         }
         else {
             map.set(arr[i], 1)
-            if (max[0] < arr[i]) {
+            if (max[0] < arr[i]&& max[1]<1) {
                 max[0] = arr[i]
                 max[1] = 1
             }
         }
         
     }
+    return max[0]
     
 }
 
