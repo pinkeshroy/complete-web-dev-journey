@@ -4,18 +4,20 @@
 // output - 2 + 4 + 3 = 9
 
 function getUniqueNumberSum(arr) {
-    const set = new Set();
+    const map = new Map();
     for (const elem of arr) {
-        if (set.has(elem)) {
-            set.delete(elem)
+        if (map.has(elem)) {
+            map.set(elem,map.get(elem)+1)
         }
         else {
-            set.add(elem)
+            map.set(elem,1)
         }
     }
     let sum=0
-    for (const elem of set) {
-        sum+=elem
+    for (const [key,val] of map) {
+        if (val <= 1) {
+            sum+=key
+        }
     }
     return sum;
 }
