@@ -1,18 +1,24 @@
-// Find the factorial of a number
-// function findFactorial(num) - this function will return factorial of a number
-// const num = 5;
-// output - 120
-// const num = 3
-// output - 6
+// Write a function to move all the negative numbers on the odd index and positive numbers on the even index, 0 considered as positive
+// const arr = [-1,1,2,-2,3,4,-6,-7]
+// function movePositiveAndNegativeNumbers(arr)
+// output - [1,-1,2,-2,3,-6,4,-7]
 
-function findFactorial(num) {
-    let num1= 1;
-    for (let i = 1; i <= num; i++){
-        num1*=i
+function movePositiveAndNegativeNumbers(arr) {
+    const newArr = new Array(arr.length);
+    let evenindex = 0;
+    let oddIndex = 1;
+    for (const elem of arr) {
+        if (elem < 0) {
+            newArr[oddIndex] = elem;
+            oddIndex+=2
+        }
+        else {
+            newArr[evenindex] = elem
+            evenindex += 2;
+        }
     }
-    return num1
-    
+    return newArr    
 }
-const num = 5;
+const arr = [-1, 1, 2, -2, 3, 4, -6, -7];
 
-console.log(findFactorial(num))
+console.log(movePositiveAndNegativeNumbers(arr));
