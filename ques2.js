@@ -14,8 +14,13 @@ function binarySearch(arr, num) {
     let end=arr.length-1;
     
     while (end != start) {
+        if (arr[end] === num) {
+            return end;
+        }
         if (arr[end / 2] <= num) {
             end = end / 2;
+        } else {
+            start = end = end / 2;
         }
     }
     
