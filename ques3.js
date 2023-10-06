@@ -8,10 +8,15 @@ function getSqrt(num) {
     
     for (let i = 1; i < num / 2; i++){
         if ((i * i) <= num) {
-            cuurentRoot = i * i;
+            cuurentRoot = i;
         }
-        if ((i * i) > num)
-            break;
+        if ((i * i) > num) {
+            for (let j = i-1; (j*j) <=num; j += .1){
+                cuurentRoot = j
+            }
+
+        }
+            
     }
     return cuurentRoot
 }
