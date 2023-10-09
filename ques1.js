@@ -9,7 +9,7 @@ function getStringsBySubstring(arr, substring) {
         for (let j = 0; j < arr[i].length - 1; j++){
             let str = arr[i].charAt(j) + arr[i].charAt(j + 1);
             if (str === substring) {
-                newArr.push(arr[i])
+                newArr.push(arr[i]);
             }
         }
     }
