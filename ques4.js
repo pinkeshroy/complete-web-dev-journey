@@ -33,7 +33,6 @@ function removeSubstring(string) {
             str += string.charAt(i);
         }
     }
-console.log(obj);
     return str;
 }
 const string = "aabbaa";
