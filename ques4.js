@@ -7,17 +7,32 @@
 // last a will not be removed bcoz we don't have another 2 a's in the string
 
 function removeSubstring(string) {
-    const obj={};
+    const obj = {};
+    let str=""
     for (let i = 0; i < string.length; i++){
         if (obj[string.charAt(i)]) {
-            obj[string.charAt(i)]= obj[string.charAt(i)]+string.charAt(i);
+            obj[string.charAt(i)] = obj[string.charAt(i)] + string.charAt(i);
+            let count = obj[string.charAt(i)].length;
+            str += string.charAt(i);
+            if (count === 3) {
+            let newStr = "";
+                for (let j = 0; j < str.length; j++){
+                    if (str.charAt(j) !== string.charAt(i)) {
+                        newStr += str.charAt(j);
+                        --count;
+                    }
+                }
+                str = newStr;
+            }
+            
         }
         else {
             obj[string.charAt(i)] = string.charAt(i);
+            str += string.charAt(i);
         }
     }
-    
-    console.log(obj);
+
+    return str;
 }
 const string = "aabbaa";
 console.log(removeSubstring(string));
