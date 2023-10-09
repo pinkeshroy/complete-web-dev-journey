@@ -15,7 +15,7 @@ function removeSubstring(string) {
             let count = obj[string.charAt(i)].length;
             str += string.charAt(i);
             if (count === 3) {
-            let newStr = "";
+             let newStr = "";
                 for (let j = 0; j < str.length; j++){
                     if (str.charAt(j) !== string.charAt(i)) {
                         newStr += str.charAt(j);
@@ -23,6 +23,8 @@ function removeSubstring(string) {
                     }
                 }
                 str = newStr;
+                obj[string.charAt(i)]='';
+                
             }
             
         }
@@ -31,7 +33,7 @@ function removeSubstring(string) {
             str += string.charAt(i);
         }
     }
-
+console.log(obj);
     return str;
 }
 const string = "aabbaa";
