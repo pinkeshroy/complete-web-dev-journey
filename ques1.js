@@ -4,13 +4,13 @@
 // function flatArray(arr) - this function will return flatten array
 
 function flatArray(arr) {
-    const newArr = [];
-    for (const array of arr) {
-        for (const elem of array) {
-            newArr.push(elem)
-        }
+  const newArr = [];
+  for (const array of arr) {
+    for (const elem of array) {
+      newArr.push(elem);
     }
-    return newArr;
+  }
+  return newArr;
 }
 
 const arr = [
