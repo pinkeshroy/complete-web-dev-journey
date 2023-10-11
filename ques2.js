@@ -1,6 +1,7 @@
 // Write a polyfill of map (same function which works as array map does)
 
-function myMap(arr, callBack) {
+function myMap(callBack) {
+    const arr = this;
     if (!arr.length||!callBack) return arr;
     const newArr = [];
 
@@ -14,5 +15,6 @@ function myMap(arr, callBack) {
 function callBackFun(elem, idx, arr) {
     return elem * elem;
 }
-
-console.log(myMap([2,3,4,5],callBackFun));
+const arr = [2, 3, 4, 5]
+Array.prototype.myMap = myMap;
+console.log(arr.myMap(callBackFun));

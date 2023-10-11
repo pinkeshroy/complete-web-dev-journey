@@ -5,7 +5,7 @@ function myFilter(arr, callBack) {
 
   for (let i = 0; i < arr.length; i++) {
       const ans = callBack(arr[i], i, arr);
-      if (ans!=null||ans!=undefined) {
+      if (ans===arr[i]&&(ans!=null||ans!=undefined)) {
           newArr.push(ans)
       }
   }
