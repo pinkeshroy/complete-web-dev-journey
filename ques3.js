@@ -1,5 +1,6 @@
 // Write polyfill of filter (same function which works as array filter does)
-function myFilter(arr, callBack) {
+function myFilter(callBack) {
+    const arr = this;
   if (!arr.length || !callBack) return arr;
   const newArr = [];
 
@@ -16,5 +17,6 @@ function myFilter(arr, callBack) {
 function callBackFun(elem, idx, arr) {
   if(elem%2==0) return elem
 }
-
-console.log(myFilter([2, 3, 4, 5], callBackFun));
+const arr = [2, 3, 4, 5];
+Array.prototype.myFilter = myFilter;
+console.log(arr.myFilter(callBackFun));

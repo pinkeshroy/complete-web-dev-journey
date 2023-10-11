@@ -1,9 +1,10 @@
 // Implement throttle function
 
-
-function myThrottle() {
-  
+function myThrottle(callBack, wait) {
+     
+}
+function callBackFun() {
+  console.log("throttle call");
 }
 
-
-console.log(myThrottle());
+console.log(myThrottle(callBackFun,5));
