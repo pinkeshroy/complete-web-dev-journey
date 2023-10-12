@@ -5,18 +5,16 @@
 
 function getDublicates(arr) {
     const obj = {};
+    const newArr = [];
+    let i = 0;
     for (const elem of arr) {
         if (obj[elem]) {
-            obj[elem]=obj[elem]+1
+            obj[elem] = obj[elem] + 1
+            if (obj[elem] === 2) {
+            newArr[i++] = Number(elem);
+            };
         } else {
             obj[elem]=1
-        }
-    }
-    const newArr = [];
-    let i=0
-    for (const [key,value] of Object.entries(obj)) {
-        if (value > 1) {
-            newArr[i++]=Number(key)
         }
     }
     return newArr
