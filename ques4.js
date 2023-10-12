@@ -13,7 +13,6 @@
 function findMedian(arr1, arr2) {
 
     const arr = arr1.concat(arr2);
-    // let sortedArr = arr.sort((a, b) => a - b);
     let sum = arr.reduce((acc, elem) => {
         return acc+elem
     }, 0)
