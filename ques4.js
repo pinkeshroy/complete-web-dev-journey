@@ -12,8 +12,8 @@
 
 function findMedian(arr1, arr2) {
 
-    const arr = arr1.concat(arr2);
-    let sortedArr = arr.sort((a, b) => a - b);
+    const sortedArr = arr1.concat(arr2);
+     sortedArr.sort((a, b) => a - b);
     
     if (sortedArr.length % 2 === 0) return ((sortedArr[sortedArr.length / 2] + sortedArr[(sortedArr.length / 2)-1]) / 2).toFixed(5);
     return  (sortedArr[Math.floor(sortedArr.length / 2)]).toFixed(5)    
@@ -21,4 +21,4 @@ function findMedian(arr1, arr2) {
 const nums1 = [1, 3],
   nums2 = [2,4];
   
-    console.log(findMedian(nums1,nums2));
+console.log(findMedian(nums1, nums2));
