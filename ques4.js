@@ -13,11 +13,10 @@
 function findMedian(arr1, arr2) {
 
     const arr = arr1.concat(arr2);
-    let sum = arr.reduce((acc, elem) => {
-        return acc+elem
-    }, 0)
-    return (sum/arr.length).toFixed(5);
+    let sortedArr = arr.sort((a, b) => a - b);
     
+    if (sortedArr.length % 2 === 0) return ((sortedArr[sortedArr.length / 2] + sortedArr[(sortedArr.length / 2)-1]) / 2).toFixed(5);
+    return  (sortedArr[Math.floor(sortedArr.length / 2)]).toFixed(5)    
 }
 const nums1 = [1, 3],
   nums2 = [2,4];
