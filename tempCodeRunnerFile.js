@@ -9,19 +9,3 @@ function getDublicates(arr) {
         if (obj[elem]) {
             obj[elem]=obj[elem]+1
         } else {
-            obj[elem]=1
-        }
-    }
-    const newArr = [];
-    let i=0
-    for (const [key,value] of Object.entries(obj)) {
-        if (value > 1) {
-            newArr[i++]=Number(key)
-        }
-    }
-    return newArr
-    
-}
-const arr = [1, 1, 2, 3, 4, 4, 4, 5, 6, 6, 7];
-
-console.log(getDublicates(arr));
