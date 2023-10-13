@@ -24,7 +24,6 @@ function validatePattern(pattern, s) {
         } else {
             obj[pattern.charAt(i)] = data[i];
         }
-        
     }
     return true;
     
