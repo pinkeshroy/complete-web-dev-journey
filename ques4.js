@@ -57,7 +57,6 @@ function wordChecker(arr) {
               if (j === arr[i].length - 1 && word3.includes(elem.charAt(j))) {
                 flag = true;
               }
-              log;
             }
         }
         if (!flag) {
