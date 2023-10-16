@@ -16,8 +16,7 @@
 
 function countTheStringLength(s="") {
     const arrS = s.trim().split(" ")
-    const str = arrS[arrS.length - 1]
-    return str.length;
+    return arrS[arrS.length - 1].length;
 }
 const s = " fly me to the moon ";
 console.log(countTheStringLength(s));
