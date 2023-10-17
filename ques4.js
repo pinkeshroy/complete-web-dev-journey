@@ -17,7 +17,7 @@ function countbinaryConsecutiveOnes(arr=[]) {
     if (elem === 1) {
       ++tempcount;
     } else {
-      maxCount = tempcount;
+      if (tempcount > maxCount) maxCount = tempcount;
       tempcount = 0;
     }
   }
