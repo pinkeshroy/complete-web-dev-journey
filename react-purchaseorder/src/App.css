@@ -1,0 +1,93 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;;
+}
+
+.Button-header {
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+button{
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+#inputButton{
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+}
+.modal-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000829de;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
+  border-radius: 20px;
+  
+}
+.inputName-Btn,select{
+  margin:10px 20px;
+   >input {
+    font-size: 15px;
+    padding: 2px 5px;
+  }
+}
+.close-btn{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  >button{
+    font-size: 15px;
+    padding: 0;
+    background-color: none;
+    border-radius: 0;
+  }
+}
+
+.saveClearBtn{
+   margin: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.tableContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
